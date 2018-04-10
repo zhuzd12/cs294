@@ -1,0 +1,2 @@
+model_checkpoint_path: "/Users/zhuzhengda/work/cs294-112/homework/hw1/model/model_ckpt-1000"
+all_model_checkpoint_paths: "/Users/zhuzhengda/work/cs294-112/homework/hw1/model/model_ckpt-1000"
