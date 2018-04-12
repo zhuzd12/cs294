@@ -20,7 +20,7 @@ class RandomController(Controller):
 	def get_action(self, state):
 		""" YOUR CODE HERE """
 		""" Your code should randomly sample an action uniformly from the action space """
-		return self.env.action_apace.sample()
+		return self.env.action_space.sample()
 
 
 
@@ -47,7 +47,7 @@ class MPCcontroller(Controller):
 		for _ in range(self.horizon):
 			ac = []
 			obs.append(ob)
-			[ac.append(self.env.acton_space.sample()) for _ in range(self.num_simulated_paths)]
+			[ac.append(self.env.action_space.sample()) for _ in range(self.num_simulated_paths)]
 			acs.append(ac)
 			ob = self.dyn_model.predict(np.array(ob), np.array(ac))
 			next_obs.append(ob)

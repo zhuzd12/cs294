@@ -52,9 +52,9 @@ class NNDynamicsModel():
         """
 
         """YOUR CODE HERE """
-        s = np.concatenate(d["state"] for d in data)
-        a = np.concatenate(d["action"] for d in data)
-        n_s = np.concatenate(d["next_state"] for d in data)
+        s = np.concatenate([d["state"] for d in data])
+        a = np.concatenate([d["action"] for d in data])
+        n_s = np.concatenate([d["next_state"] for d in data])
         N = s.shape[0]
         train_indicies = np.arange(N)
 
@@ -83,4 +83,4 @@ class NNDynamicsModel():
         s_a = np.concatenate((s_norm, a_norm), axis=1)
         delta = self.sess.run(self.deltas_predict, feed_dict={self.s_a: s_a})
 
-        return self.std_deltas * delta + self.mean_deltas
+        return self.std_deltas * delta + self.mean_deltas + states

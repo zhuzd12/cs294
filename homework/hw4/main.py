@@ -25,7 +25,7 @@ def sample(env,
     """
     paths = []
     """ YOUR CODE HERE """
-    for _ in tqdm.tqdm(num_paths):
+    for _ in tqdm.tqdm(range(num_paths)):
         obs, acs, n_obs, rewards ,costs = [], [], [], [], []
         ob = env.reset()
         steps = 0
@@ -243,7 +243,7 @@ def main():
     parser.add_argument('--render', action='store_true')
     # Training args
     parser.add_argument('--learning_rate', '-lr', type=float, default=1e-3)
-    parser.add_argument('--onpol_iters', '-n', type=int, default=1)
+    parser.add_argument('--onpol_iters', '-n', type=int, default=15)
     parser.add_argument('--dyn_iters', '-nd', type=int, default=60)
     parser.add_argument('--batch_size', '-b', type=int, default=512)
     # Data collection
